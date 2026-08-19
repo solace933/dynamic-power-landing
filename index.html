@@ -21,7 +21,7 @@
   --radius:8px;
   --radius-sm:5px;
   --shadow:0 16px 40px -18px rgba(6,20,40,0.35);
-  --maxw:720px; /* narrow — single-column funnel width, not a wide brochure site */
+  --maxw:720px;
 }
 
 *{box-sizing:border-box; margin:0; padding:0;}
@@ -37,27 +37,14 @@ body{
 }
 img{max-width:100%; display:block;}
 .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px;}
-.wrap-wide{max-width:920px; margin:0 auto; padding:0 20px;} /* only for hero image + trust strip */
+.wrap-wide{max-width:920px; margin:0 auto; padding:0 20px;}
 h1,h2,h3{font-family:'Barlow Condensed',sans-serif; line-height:1.03; font-weight:800;}
-.eyebrow{
-  font-family:'Barlow Condensed',sans-serif;
-  text-transform:uppercase;
-  font-size:13.5px;
-  letter-spacing:0.14em;
-  font-weight:700;
-}
+.eyebrow{font-family:'Barlow Condensed',sans-serif; text-transform:uppercase; font-size:13.5px; letter-spacing:0.14em; font-weight:700;}
 a{color:inherit;}
 .readout{font-family:'Barlow Condensed',sans-serif; font-weight:800; letter-spacing:0.01em;}
 
 /* Buttons */
-.btn{
-  display:inline-flex; align-items:center; justify-content:center; gap:10px;
-  border:none; border-radius:var(--radius-sm);
-  font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:18px;
-  letter-spacing:0.03em; text-transform:uppercase;
-  padding:16px 24px; cursor:pointer; text-decoration:none;
-  transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
-}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; border:none; border-radius:var(--radius-sm); font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:18px; letter-spacing:0.03em; text-transform:uppercase; padding:16px 24px; cursor:pointer; text-decoration:none; transition:transform .12s ease, box-shadow .12s ease, background .12s ease;}
 .btn:active{transform:scale(0.97);}
 .btn-gold{background:var(--gold); color:var(--navy-deep); box-shadow:0 10px 22px -8px rgba(255,199,44,0.55);}
 .btn-gold:hover{background:var(--gold-deep);}
@@ -67,7 +54,7 @@ a{color:inherit;}
 .btn-wa{background:#25D366; color:#fff;}
 .btn-wa:hover{background:#1fb959;}
 
-/* ===== TOP BAR — logo + phone only, no nav ===== */
+/* ===== TOP BAR ===== */
 .topbar{background:var(--navy-deep); padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.08);}
 .topbar .wrap{display:flex; align-items:center; justify-content:space-between;}
 .logo{display:flex; align-items:center; gap:8px; color:#fff;}
@@ -78,30 +65,23 @@ a{color:inherit;}
 .topbar-phone .wa-dot{width:8px; height:8px; border-radius:50%; background:#25D366;}
 
 /* ===== HERO ===== */
-.hero{
-  background:radial-gradient(ellipse 700px 400px at 85% 0%, rgba(255,199,44,0.14), transparent 60%),
-    linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
-  color:#fff; padding:32px 0 0;
-}
+.hero{background:radial-gradient(ellipse 700px 400px at 85% 0%, rgba(255,199,44,0.14), transparent 60%), linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%); color:#fff; padding:32px 0 0;}
 .hero .wrap{text-align:center; padding-bottom:22px;}
 .hero-badges{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:16px;}
 .pill{display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18); padding:6px 12px; border-radius:4px; font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.03em; text-transform:uppercase; color:#fff;}
 .pill.gold{background:rgba(255,199,44,0.14); border-color:rgba(255,199,44,0.4); color:var(--gold);}
 .hero h1{font-size:clamp(32px,8vw,46px); color:#fff; margin-bottom:14px;}
 .hero h1 em{font-style:normal; color:var(--gold);}
-.hero-sub{font-family:'Lato',sans-serif; font-size:17px; color:rgba(255,255,255,0.85); max-width:46ch; margin:0 auto 20px;}
-.hero-price-badge{
-  display:inline-flex; align-items:center; gap:12px; background:rgba(0,0,0,0.28);
-  border:1px solid rgba(255,199,44,0.35); border-radius:var(--radius-sm);
-  padding:12px 20px; margin-bottom:20px;
+.hero-sub{font-family:'Lato',sans-serif; font-size:17px; color:rgba(255,255,255,0.85); max-width:46ch; margin:0 auto 22px;}
+.hero-note{
+  display:inline-flex; align-items:center; gap:8px; background:rgba(255,199,44,0.1);
+  border:1px solid rgba(255,199,44,0.3); border-radius:var(--radius-sm);
+  padding:10px 16px; margin-bottom:22px; font-family:'Lato',sans-serif; font-size:13.5px; color:rgba(255,255,255,0.85);
 }
-.hero-price-badge .amt{font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(26px,6vw,34px); color:var(--gold);}
-.hero-price-badge .note{font-family:'Lato',sans-serif; font-size:12.5px; text-align:left; color:rgba(255,255,255,0.7); line-height:1.3;}
 .hero-cta-col{display:flex; flex-direction:column; gap:10px; max-width:380px; margin:0 auto;}
 .hero-visual{margin-top:8px;}
 .hero-visual img{width:100%; display:block;}
 
-/* Trust strip — dense, right under hero, like the reference ad */
 .trust-strip{background:var(--navy-deep); border-top:1px solid rgba(255,255,255,0.08); padding:18px 0;}
 .trust-strip .wrap-wide{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; text-align:center;}
 @media(max-width:640px){.trust-strip .wrap-wide{grid-template-columns:repeat(2,1fr); gap:16px;}}
@@ -110,7 +90,6 @@ a{color:inherit;}
 .trust-item .t{font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:13.5px; text-transform:uppercase; letter-spacing:0.02em;}
 .trust-item .s{font-family:'Lato',sans-serif; font-size:11px; color:rgba(255,255,255,0.55);}
 
-/* ===== OFFER STRIP TICKER ===== */
 .strip{background:var(--gold); color:var(--navy-deep); padding:10px 0; overflow:hidden;}
 .strip-track{display:flex; gap:32px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.03em; text-transform:uppercase; white-space:nowrap; animation:scroll-strip 22s linear infinite;}
 .strip-track span{display:flex; align-items:center; gap:8px;}
@@ -118,7 +97,6 @@ a{color:inherit;}
 @keyframes scroll-strip{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 @media(prefers-reduced-motion: reduce){.strip-track{animation:none; flex-wrap:wrap;}}
 
-/* ===== SECTIONS — tight, single column ===== */
 .section{padding:38px 0;}
 .section-navy{background:var(--navy-deep); color:#fff;}
 .section-cream{background:var(--cream);}
@@ -129,46 +107,25 @@ a{color:inherit;}
 .section p.lede{font-family:'Lato',sans-serif; font-size:15.5px; color:var(--ink-soft); margin-bottom:16px;}
 .section-navy p.lede{color:rgba(255,255,255,0.78);}
 
-/* Punchy bullet lists — replaces card grids */
 .punch-list{list-style:none; display:flex; flex-direction:column; gap:10px; margin:16px 0 20px;}
-.punch-list li{
-  display:flex; gap:10px; align-items:flex-start;
-  font-family:'Lato',sans-serif; font-size:15px; font-weight:400;
-  background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);
-  border-radius:var(--radius-sm); padding:12px 14px; color:rgba(255,255,255,0.88);
-}
-.section-cream .punch-list li,.section:not(.section-navy) .punch-list li{
-  background:#fff; border:1px solid var(--line); color:var(--ink);
-}
+.punch-list li{display:flex; gap:10px; align-items:flex-start; font-family:'Lato',sans-serif; font-size:15px; font-weight:400; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius-sm); padding:12px 14px; color:rgba(255,255,255,0.88);}
+.section-cream .punch-list li,.section:not(.section-navy) .punch-list li{background:#fff; border:1px solid var(--line); color:var(--ink);}
 .punch-list .mark{flex:none; width:20px; height:20px; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800;}
 .punch-list .mark.x{background:rgba(239,68,68,0.16); color:#f87171;}
 .punch-list .mark.check{background:rgba(255,199,44,0.16); color:var(--gold-deep);}
 
 .punch-line{font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(20px,5.4vw,26px); color:var(--gold); margin:6px 0 18px;}
 
-/* Repeating price/CTA reminder bar between sections */
-.cta-reminder{
-  background:linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
-  border-radius:var(--radius); padding:18px 20px; margin:22px auto 0; max-width:var(--maxw);
-  display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
-  box-shadow:var(--shadow);
-}
-.cta-reminder .price{font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:22px; color:var(--gold);}
-.cta-reminder .price small{display:block; font-family:'Lato',sans-serif; font-weight:400; font-size:11px; color:rgba(255,255,255,0.6); text-transform:none; letter-spacing:0;}
+.cta-reminder{background:linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%); border-radius:var(--radius); padding:18px 20px; margin:22px auto 0; max-width:var(--maxw); display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; box-shadow:var(--shadow);}
+.cta-reminder .tag{font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:20px; color:var(--gold);}
+.cta-reminder .tag small{display:block; font-family:'Lato',sans-serif; font-weight:400; font-size:11px; color:rgba(255,255,255,0.6); text-transform:none; letter-spacing:0;}
 .cta-reminder .btn{padding:12px 20px; font-size:15px;}
 
-/* Product image full width, tight caption below */
 .product-shot{margin:18px 0;}
 .product-shot img{border-radius:var(--radius); box-shadow:var(--shadow);}
-.product-caption{font-family:'Lato',sans-serif; font-size:12.5px; color:var(--ink-soft); text-align:center; margin-top:8px;}
-.section-navy .product-caption{color:rgba(255,255,255,0.6);}
 
-/* Compact list rows — appliances / benefits (no card grids) */
 .compact-rows{display:flex; flex-direction:column; gap:10px; margin:16px 0 8px;}
-.compact-row{
-  display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line);
-  border-radius:var(--radius-sm); padding:10px; overflow:hidden;
-}
+.compact-row{display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line); border-radius:var(--radius-sm); padding:10px; overflow:hidden;}
 .compact-row .thumb{flex:none; width:56px; height:56px; border-radius:5px; overflow:hidden;}
 .compact-row .thumb img{width:100%; height:100%; object-fit:cover;}
 .compact-row .txt{flex:1;}
@@ -176,27 +133,19 @@ a{color:inherit;}
 .compact-row .txt .s{font-family:'Lato',sans-serif; font-size:13px; color:var(--ink-soft); margin-top:1px;}
 .runtime-note{margin-top:14px; text-align:center; font-family:'Lato',sans-serif; font-size:13px; color:var(--ink-soft);}
 
-/* Disclaimer */
 .disclaimer{margin-top:14px; font-family:'Lato',sans-serif; font-size:13px; color:var(--ink-soft); border-left:3px solid var(--gold); padding-left:10px;}
 .section-navy .disclaimer{color:rgba(255,255,255,0.65);}
 
-/* ===== PRICE BLOCK ===== */
-.price-block{background:linear-gradient(150deg, var(--navy) 0%, var(--navy-deep) 100%); border-radius:var(--radius); padding:26px 22px; color:#fff; text-align:center; box-shadow:var(--shadow);}
-.price-block .eyebrow{color:var(--gold);}
-.price-block h2{color:#fff; margin:8px 0 6px;}
-.price-block p{font-family:'Lato',sans-serif; font-size:14.5px; color:rgba(255,255,255,0.78); margin-bottom:16px;}
-.price-display{background:rgba(0,0,0,0.28); border:1px solid rgba(255,199,44,0.3); border-radius:var(--radius-sm); padding:18px; margin-bottom:16px;}
-.price-display .label{font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:12.5px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:4px;}
-.price-display .amount{font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(34px,9vw,46px); color:var(--gold);}
-.price-badges{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:16px;}
+/* ===== PRICING / OFFER BLOCK (no numeric price) ===== */
+.offer-block{background:linear-gradient(150deg, var(--navy) 0%, var(--navy-deep) 100%); border-radius:var(--radius); padding:28px 22px; color:#fff; text-align:center; box-shadow:var(--shadow);}
+.offer-block .eyebrow{color:var(--gold);}
+.offer-block h2{color:#fff; margin:8px 0 10px;}
+.offer-block p{font-family:'Lato',sans-serif; font-size:15px; color:rgba(255,255,255,0.8); margin-bottom:18px;}
+.price-badges{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:18px;}
 
 /* ===== LEAD FORM ===== */
 .form-section{background:var(--navy-deep); color:#fff;}
-.scarcity{
-  background:rgba(255,199,44,0.12); border:1px solid rgba(255,199,44,0.35); border-radius:var(--radius-sm);
-  padding:10px 14px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:14px;
-  color:var(--gold); text-align:center; margin-bottom:18px; letter-spacing:0.01em;
-}
+.scarcity{background:rgba(255,199,44,0.12); border:1px solid rgba(255,199,44,0.35); border-radius:var(--radius-sm); padding:10px 14px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:14px; color:var(--gold); text-align:center; margin-bottom:18px; letter-spacing:0.01em;}
 .form-card{background:#fff; color:var(--ink); border-radius:var(--radius); padding:26px 20px; box-shadow:var(--shadow);}
 .form-card h2{color:var(--navy-deep); font-size:clamp(22px,5.6vw,28px); margin-bottom:6px;}
 .form-card > p{font-family:'Lato',sans-serif; font-size:14.5px; color:var(--ink-soft); margin-bottom:18px;}
@@ -213,6 +162,7 @@ a{color:inherit;}
 .consent-row{display:flex; align-items:flex-start; gap:8px; margin:14px 0; font-family:'Lato',sans-serif; font-size:12.5px; color:var(--ink-soft);}
 .consent-row input{margin-top:3px;}
 .form-footnote{font-family:'Lato',sans-serif; font-size:11.5px; color:var(--ink-soft); text-align:center; margin-top:10px;}
+.submitting{opacity:0.6; pointer-events:none;}
 
 #thankyou{display:none;}
 #thankyou.show{display:block;}
@@ -225,7 +175,6 @@ a{color:inherit;}
 .ty-list li{font-family:'Lato',sans-serif; font-size:14px; color:var(--ink-soft); display:flex; gap:8px;}
 .ty-list li::before{content:"✓"; color:var(--gold-deep); font-weight:800;}
 
-/* ===== FAQ ===== */
 .faq-list{display:flex; flex-direction:column; gap:8px;}
 .faq-item{border:1px solid var(--line); border-radius:var(--radius-sm); background:#fff; overflow:hidden;}
 .faq-q{width:100%; text-align:left; background:none; border:none; cursor:pointer; padding:15px 16px; font-family:'Barlow Condensed',sans-serif; font-size:17.5px; font-weight:700; color:var(--navy-deep); display:flex; justify-content:space-between; align-items:center; gap:14px;}
@@ -235,7 +184,6 @@ a{color:inherit;}
 .faq-a p{padding:0 16px 16px; font-family:'Lato',sans-serif; font-size:14px; color:var(--ink-soft);}
 .faq-item.open .faq-a{max-height:200px;}
 
-/* ===== FINAL CTA ===== */
 .final-cta{background:linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%); color:#fff; text-align:center;}
 .final-cta h2{color:#fff; font-size:clamp(28px,7vw,38px); margin-bottom:10px;}
 .final-cta p{font-family:'Lato',sans-serif; color:rgba(255,255,255,0.78); font-size:15.5px; margin-bottom:20px;}
@@ -245,20 +193,16 @@ footer{background:var(--navy-deep); color:rgba(255,255,255,0.55); padding:24px 0
 footer .f-logo{color:#fff; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:15px; letter-spacing:0.02em; text-transform:uppercase; margin-bottom:6px;}
 footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
 
-/* Floating WhatsApp button — persistent on all devices */
-.wa-float{
-  position:fixed; right:16px; bottom:78px; z-index:60;
-  width:52px; height:52px; border-radius:50%; background:#25D366; color:#fff;
-  display:flex; align-items:center; justify-content:center; font-size:24px;
-  box-shadow:0 10px 24px -6px rgba(0,0,0,0.4); text-decoration:none;
-}
+.wa-float{position:fixed; right:16px; bottom:78px; z-index:60; width:52px; height:52px; border-radius:50%; background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center; font-size:24px; box-shadow:0 10px 24px -6px rgba(0,0,0,0.4); text-decoration:none;}
 @media(min-width:860px){.wa-float{bottom:24px;}}
 
-/* Sticky bottom bar — mobile */
-.sticky-bar{position:fixed; bottom:0; left:0; right:0; z-index:50; background:var(--navy-deep); border-top:1px solid rgba(255,255,255,0.1); padding:10px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px;}
-.sticky-bar .sb-price{color:#fff; font-family:'Barlow Condensed',sans-serif; font-size:16px; font-weight:700;}
-.sticky-bar .sb-price small{display:block; font-family:'Lato',sans-serif; color:rgba(255,255,255,0.55); font-size:10px; font-weight:400;}
-.sb-btn{border-radius:var(--radius-sm); padding:10px 16px; font-family:'Barlow Condensed',sans-serif; font-size:14px; font-weight:700; text-transform:uppercase; text-decoration:none; background:var(--gold); color:var(--navy-deep);}
+.sticky-bar{position:fixed; bottom:0; left:0; right:0; z-index:50; background:var(--navy-deep); border-top:1px solid rgba(255,255,255,0.1); padding:10px 16px; display:flex; align-items:center; justify-content:space-between; gap:10px;}
+.sticky-bar .sb-tag{color:#fff; font-family:'Barlow Condensed',sans-serif; font-size:15px; font-weight:700;}
+.sticky-bar .sb-tag small{display:block; font-family:'Lato',sans-serif; color:rgba(255,255,255,0.55); font-size:10px; font-weight:400;}
+.sticky-bar .sb-actions{display:flex; gap:8px; flex:none;}
+.sb-btn{border-radius:var(--radius-sm); padding:10px 14px; font-family:'Barlow Condensed',sans-serif; font-size:13.5px; font-weight:700; text-transform:uppercase; text-decoration:none;}
+.sb-btn.gold{background:var(--gold); color:var(--navy-deep);}
+.sb-btn.wa{background:#25D366; color:#fff;}
 @media(min-width:860px){.sticky-bar{display:none;}}
 
 .reveal-hide{display:none !important;}
@@ -267,7 +211,6 @@ footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
 </head>
 <body>
 
-<!-- ===== TOP BAR — no nav, just identity + phone ===== -->
 <div class="topbar">
   <div class="wrap">
     <div class="logo"><div class="logo-mark">D</div><div class="logo-text">DYNAMIC<span> POWER</span></div></div>
@@ -275,7 +218,6 @@ footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
   </div>
 </div>
 
-<!-- ===== HERO ===== -->
 <section class="hero">
   <div class="wrap">
     <div class="hero-badges">
@@ -284,10 +226,7 @@ footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
     <h1>Reliable 1200W Power — <em>No Fuel, No Generator Noise.</em></h1>
     <p class="hero-sub">Power your lights, TV, fridge essentials and devices — and pump water too. Installed at your home or shop, anywhere in Nigeria.</p>
 
-    <div class="hero-price-badge">
-      <div class="amt">₦900,000</div>
-      <div class="note">Installation included<br>nationwide. Pay monthly.</div>
-    </div>
+    <div class="hero-note">💬 Pricing and installation plans are confirmed on WhatsApp — quick, no obligation.</div>
 
     <div class="hero-cta-col">
       <a href="#lead-form" class="btn btn-gold btn-block">Check Availability</a>
@@ -299,7 +238,6 @@ footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
   </div>
 </section>
 
-<!-- ===== TRUST STRIP — dense, right under hero ===== -->
 <div class="trust-strip">
   <div class="wrap-wide">
     <div class="trust-item"><div class="ic">🛠️</div><div class="t">Pro Installation</div><div class="s">Done by experts</div></div>
@@ -309,15 +247,13 @@ footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
   </div>
 </div>
 
-<!-- ===== OFFER TICKER ===== -->
 <div class="strip">
   <div class="strip-track">
-    <span>1200W Power</span><span>Installation Nationwide</span><span>Water Pump Capable</span><span>No Fuel</span><span>No Noise</span><span class="readout">₦900,000</span>
-    <span>1200W Power</span><span>Installation Nationwide</span><span>Water Pump Capable</span><span>No Fuel</span><span>No Noise</span><span class="readout">₦900,000</span>
+    <span>1200W Power</span><span>Installation Nationwide</span><span>Water Pump Capable</span><span>No Fuel</span><span>No Noise</span><span>Ask About Pricing</span>
+    <span>1200W Power</span><span>Installation Nationwide</span><span>Water Pump Capable</span><span>No Fuel</span><span>No Noise</span><span>Ask About Pricing</span>
   </div>
 </div>
 
-<!-- ===== PROBLEM ===== -->
 <section class="section section-navy">
   <div class="wrap">
     <div class="eyebrow">Sound familiar?</div>
@@ -333,7 +269,6 @@ footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
   </div>
 </section>
 
-<!-- ===== SOLUTION ===== -->
 <section class="section">
   <div class="wrap">
     <div class="eyebrow eyebrow-gold">The fix</div>
@@ -348,15 +283,14 @@ footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
       <li><span class="mark check">✓</span> Also pumps water — one system, two jobs</li>
       <li><span class="mark check">✓</span> Portable and built for Nigerian homes and shops</li>
     </ul>
-    <p class="disclaimer">Runtime depends on the appliances connected and your usage. Our team confirms what fits your needs before you commit.</p>
+    <p class="disclaimer">Runtime depends on the appliances connected and your usage. Our team confirms what fits your needs — and your price — before you commit.</p>
     <div class="cta-reminder">
-      <div class="price">₦900,000<small>Installation included nationwide</small></div>
+      <div class="tag">Installed Nationwide<small>Pay for installation monthly</small></div>
       <a href="#lead-form" class="btn btn-gold">Check Availability</a>
     </div>
   </div>
 </section>
 
-<!-- ===== WATER PUMP FEATURE ===== -->
 <section class="section section-navy">
   <div class="wrap">
     <div class="eyebrow">Not just power</div>
@@ -367,7 +301,6 @@ footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
   </div>
 </section>
 
-<!-- ===== WHAT CAN YOU POWER (compact rows) ===== -->
 <section class="section section-cream">
   <div class="wrap">
     <div class="eyebrow eyebrow-gold">Everyday use</div>
@@ -377,7 +310,7 @@ footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
       <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/3675622/pexels-photo-3675622.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Fan"></div><div class="txt"><div class="t">Fan</div></div></div>
       <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/712490/pexels-photo-712490.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Lights"></div><div class="txt"><div class="t">Lights</div></div></div>
       <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/4218546/pexels-photo-4218546.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Wi-Fi router"></div><div class="txt"><div class="t">Wi-Fi Router</div></div></div>
-      <div class="compact-row"><div class="thumb">   <img src="https://images.pexels.com/photos/6355/desk-laptop-working-technology.jpg?auto=compress&cs=tinysrgb&w=200" alt="Laptop"></div><div class="txt"><div class="t">Laptop</div></div></div>
+      <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/6355/desk-laptop-working-technology.jpg?auto=compress&cs=tinysrgb&w=200" alt="Laptop"></div><div class="txt"><div class="t">Laptop</div></div></div>
       <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/16814787/pexels-photo-16814787.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Phone charging"></div><div class="txt"><div class="t">Phone Charging</div></div></div>
       <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/17335757/pexels-photo-17335757.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Water pump"></div><div class="txt"><div class="t">Water Pump</div></div></div>
       <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/12935074/pexels-photo-12935074.jpeg?auto=compress&cs=tinysrgb&w=200" alt="POS and office devices"></div><div class="txt"><div class="t">POS &amp; Office Devices</div></div></div>
@@ -386,7 +319,6 @@ footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
   </div>
 </section>
 
-<!-- ===== WHY DYNAMIC POWER (compact rows) ===== -->
 <section class="section">
   <div class="wrap">
     <div class="eyebrow eyebrow-gold">Why Dynamic Power</div>
@@ -400,30 +332,27 @@ footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
       <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/6961112/pexels-photo-6961112.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Nationwide installation"></div><div class="txt"><div class="t">Nationwide Installation</div><div class="s">Professional install wherever you are</div></div></div>
     </div>
     <div class="cta-reminder">
-      <div class="price">₦900,000<small>Pay for installation monthly</small></div>
+      <div class="tag">Get Your Price<small>Confirmed on WhatsApp in minutes</small></div>
       <a href="#lead-form" class="btn btn-gold">Check Availability</a>
     </div>
   </div>
 </section>
 
-<!-- ===== PRICE ===== -->
 <section class="section section-cream">
   <div class="wrap">
-    <div class="price-block">
-      <div class="eyebrow">The offer</div>
+    <div class="offer-block">
+      <div class="eyebrow">Pricing &amp; installation</div>
       <h2>Get Your Dynamic Power 1200W</h2>
-      <p>Professional installation without paying it all at once.</p>
-      <div class="price-display"><div class="label">Total package price</div><div class="amount">₦900,000</div></div>
+      <p>Pricing depends on your location and setup. Our team confirms your exact price and installation plan on WhatsApp — no obligation.</p>
       <div class="price-badges">
         <span class="pill gold">Installation Included Nationwide</span>
         <span class="pill">Pay Installation Monthly</span>
       </div>
-      <a href="#lead-form" class="btn btn-gold btn-block">Check Availability</a>
+      <a href="#lead-form" class="btn btn-gold btn-block">Check Availability &amp; Get Pricing</a>
     </div>
   </div>
 </section>
 
-<!-- ===== LEAD FORM ===== -->
 <section class="section form-section" id="lead-form">
   <div class="wrap">
 
@@ -431,7 +360,7 @@ footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
       <div class="scarcity">⚠ Installation slots are limited each month — submit your details to confirm availability in your area.</div>
       <div class="form-card">
         <h2>Interested in Dynamic Power 1200W?</h2>
-        <p>Tell us where you are and what you need to power. Our team follows up on WhatsApp.</p>
+        <p>Tell us where you are and what you need to power. We'll confirm pricing and availability with you directly on WhatsApp.</p>
         <form id="leadForm">
           <div class="f-group"><label for="fullName">Full Name</label><input type="text" id="fullName" placeholder="Enter your full name" required></div>
           <div class="f-row">
@@ -460,7 +389,7 @@ footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
             </select>
           </div>
           <label class="consent-row"><input type="checkbox" id="consent"><span>Yes, I want Dynamic Power updates and information on WhatsApp.</span></label>
-          <button type="submit" class="btn btn-gold btn-block">Get More Information</button>
+          <button type="submit" id="submitBtn" class="btn btn-gold btn-block">Get More Information</button>
           <p class="form-footnote">Your information is used only to contact you about Dynamic Power.</p>
         </form>
       </div>
@@ -471,24 +400,22 @@ footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
         <div class="ty-emoji">🎉</div>
         <h2>You're In!</h2>
         <p>Thank you for showing interest in Dynamic Power 1200W.</p>
-        <p>Installation is available nationwide, and you can pay for installation monthly.</p>
+        <p>We've opened WhatsApp for you — send the message to reach our team directly. If it didn't open, tap the button below.</p>
         <div class="ty-divider"></div>
-        <h3 style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:21px; margin-bottom:12px; color:var(--navy-deep);">Join Our WhatsApp Group</h3>
+        <h3 style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:21px; margin-bottom:12px; color:var(--navy-deep);">Continue on WhatsApp</h3>
         <ul class="ty-list">
-          <li>Product updates and special offers</li>
-          <li>Installation information</li>
-          <li>Answers to common questions</li>
-          <li>Availability updates in your area</li>
+          <li>Get your price confirmed for your location</li>
+          <li>Ask about installation and monthly payment</li>
+          <li>Join our WhatsApp group for updates and offers</li>
         </ul>
-        <a href="https://wa.me/2348032745082?text=Hi%2C%20I%27d%20like%20to%20join%20the%20Dynamic%20Power%20WhatsApp%20group" target="_blank" rel="noopener" class="btn btn-gold btn-block" style="margin-bottom:12px;">Join the WhatsApp Group</a>
-        <p style="font-family:'Lato',sans-serif; font-size:13px; color:var(--ink-soft);">Prefer to talk directly? WhatsApp: <strong>0803 274 5082</strong></p>
+        <a id="tyWhatsappBtn" href="https://wa.me/2348032745082" target="_blank" rel="noopener" class="btn btn-wa btn-block" style="margin-bottom:12px;">Open WhatsApp Chat</a>
+        <p style="font-family:'Lato',sans-serif; font-size:13px; color:var(--ink-soft);">Prefer to dial directly? WhatsApp: <strong>0803 274 5082</strong></p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ===== FAQ ===== -->
 <section class="section section-cream">
   <div class="wrap">
     <div class="eyebrow eyebrow-gold">Questions</div>
@@ -497,7 +424,7 @@ footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
       <div class="faq-item"><button class="faq-q"><span>Is installation included?</span><span class="plus">+</span></button><div class="faq-a"><p>Yes. Installation is included nationwide.</p></div></div>
       <div class="faq-item"><button class="faq-q"><span>Can I pay installation monthly?</span><span class="plus">+</span></button><div class="faq-a"><p>Yes. Customers can pay for installation monthly.</p></div></div>
       <div class="faq-item"><button class="faq-q"><span>Can it pump water?</span><span class="plus">+</span></button><div class="faq-a"><p>Yes. The system can also be used for water-pumping applications.</p></div></div>
-      <div class="faq-item"><button class="faq-q"><span>How much does it cost?</span><span class="plus">+</span></button><div class="faq-a"><p>The current package price is ₦900,000.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>How much does it cost?</span><span class="plus">+</span></button><div class="faq-a"><p>Pricing depends on your location and setup. Message us on WhatsApp at 0803 274 5082 for a quick quote, or submit the form above.</p></div></div>
       <div class="faq-item"><button class="faq-q"><span>Do I need petrol or diesel?</span><span class="plus">+</span></button><div class="faq-a"><p>No. It's a clean alternative to fuel-powered generators.</p></div></div>
       <div class="faq-item"><button class="faq-q"><span>Is it noisy?</span><span class="plus">+</span></button><div class="faq-a"><p>It runs quietly compared with traditional fuel generators.</p></div></div>
       <div class="faq-item"><button class="faq-q"><span>Where can I get installation?</span><span class="plus">+</span></button><div class="faq-a"><p>Installation is available nationwide in Nigeria.</p></div></div>
@@ -506,7 +433,6 @@ footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
   </div>
 </section>
 
-<!-- ===== FINAL CTA ===== -->
 <section class="section final-cta">
   <div class="wrap">
     <h2>Ready for Reliable Power Without Fuel?</h2>
@@ -530,11 +456,26 @@ footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
 <a href="https://wa.me/2348032745082" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">💬</a>
 
 <div class="sticky-bar">
-  <div class="sb-price">₦900,000 <small>Installation included</small></div>
-  <a href="#lead-form" class="sb-btn">Check Availability</a>
+  <div class="sb-tag">Get Pricing <small>Confirmed on WhatsApp</small></div>
+  <div class="sb-actions">
+    <a href="https://wa.me/2348032745082" target="_blank" rel="noopener" class="sb-btn wa">WhatsApp</a>
+    <a href="#lead-form" class="sb-btn gold">Check</a>
+  </div>
 </div>
 
 <script>
+/* ============================================================
+   CONFIG — edit these two values
+   1) WHATSAPP_NUMBER: already set to Dynamic Power's number
+   2) APPS_SCRIPT_URL: paste your deployed Google Apps Script
+      Web App URL here once you've set up the Google Sheet
+      (see setup instructions provided separately). Leave it
+      as-is and the form will still work via WhatsApp only —
+      it just won't log to a spreadsheet yet.
+   ============================================================ */
+const WHATSAPP_NUMBER = "2348032745082";
+const APPS_SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
 const states = ["Abia","Adamawa","Akwa Ibom","Anambra","Bauchi","Bayelsa","Benue","Borno","Cross River","Delta","Ebonyi","Edo","Ekiti","Enugu","FCT (Abuja)","Gombe","Imo","Jigawa","Kaduna","Kano","Katsina","Kebbi","Kogi","Kwara","Lagos","Nasarawa","Niger","Ogun","Ondo","Osun","Oyo","Plateau","Rivers","Sokoto","Taraba","Yobe","Zamfara"];
 const stateSelect = document.getElementById('state');
 states.forEach(s => { const opt = document.createElement('option'); opt.value = s; opt.textContent = s; stateSelect.appendChild(opt); });
@@ -553,10 +494,55 @@ document.querySelectorAll('.faq-item').forEach(item => {
 
 document.getElementById('leadForm').addEventListener('submit', function(e){
   e.preventDefault();
+
+  const submitBtn = document.getElementById('submitBtn');
+  submitBtn.classList.add('submitting');
+  submitBtn.textContent = 'Sending...';
+
+  const fullName = document.getElementById('fullName').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const state = document.getElementById('state').value;
+  const city = document.getElementById('city').value.trim();
+  const useFor = Array.from(document.querySelectorAll('#useFor input:checked')).map(i => i.value).join(', ');
+  const wantToKnow = document.getElementById('wantToKnow').value;
+  const consent = document.getElementById('consent').checked ? 'Yes' : 'No';
+
+  const payload = { fullName, phone, state, city, useFor, wantToKnow, consent, timestamp: new Date().toISOString() };
+
+  // 1) Log the lead to Google Sheets (fire-and-forget — Apps Script
+  //    doesn't return readable CORS responses, so we don't wait on it)
+  if (APPS_SCRIPT_URL && APPS_SCRIPT_URL.indexOf('PASTE_YOUR') === -1) {
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    }).catch(() => {});
+  }
+
+  // 2) Build a pre-filled WhatsApp message from what they typed
+  const lines = [
+    "Hi Dynamic Power, I'm interested in the 1200W system.",
+    "",
+    "Name: " + fullName,
+    "Phone: " + phone,
+    "State: " + state,
+    "City: " + city,
+    "Use for: " + (useFor || "Not specified"),
+    "Want to know: " + (wantToKnow || "General information")
+  ];
+  const waText = encodeURIComponent(lines.join("\n"));
+  const waUrl = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + waText;
+
+  document.getElementById('tyWhatsappBtn').href = waUrl;
+
   document.getElementById('form-view').classList.add('reveal-hide');
   const ty = document.getElementById('thankyou');
   ty.classList.add('show');
-  ty.scrollIntoView({behavior:'smooth', block:'start'});
+  ty.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Open WhatsApp automatically with the message ready to send
+  window.open(waUrl, '_blank');
 });
 </script>
 
