@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Power 1200W — Reliable Power Without Fuel or Noise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --navy-deep:#061428;
+  --navy:#0B2A4A;
+  --gold:#FFC72C;
+  --gold-deep:#E8A100;
+  --cream:#FAF7EF;
+  --ink:#10141C;
+  --ink-soft:#4b5563;
+  --line:rgba(11,42,74,0.14);
+  --radius:8px;
+  --radius-sm:5px;
+  --shadow:0 16px 40px -18px rgba(6,20,40,0.35);
+  --maxw:720px; /* narrow — single-column funnel width, not a wide brochure site */
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Lato',sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:60px;
+  font-weight:400;
+}
+img{max-width:100%; display:block;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px;}
+.wrap-wide{max-width:920px; margin:0 auto; padding:0 20px;} /* only for hero image + trust strip */
+h1,h2,h3{font-family:'Barlow Condensed',sans-serif; line-height:1.03; font-weight:800;}
+.eyebrow{
+  font-family:'Barlow Condensed',sans-serif;
+  text-transform:uppercase;
+  font-size:13.5px;
+  letter-spacing:0.14em;
+  font-weight:700;
+}
+a{color:inherit;}
+.readout{font-family:'Barlow Condensed',sans-serif; font-weight:800; letter-spacing:0.01em;}
+
+/* Buttons */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  border:none; border-radius:var(--radius-sm);
+  font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:18px;
+  letter-spacing:0.03em; text-transform:uppercase;
+  padding:16px 24px; cursor:pointer; text-decoration:none;
+  transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+.btn:active{transform:scale(0.97);}
+.btn-gold{background:var(--gold); color:var(--navy-deep); box-shadow:0 10px 22px -8px rgba(255,199,44,0.55);}
+.btn-gold:hover{background:var(--gold-deep);}
+.btn-outline{background:transparent; border:2px solid rgba(255,255,255,0.5); color:#fff;}
+.btn-outline:hover{border-color:#fff; background:rgba(255,255,255,0.08);}
+.btn-block{width:100%;}
+.btn-wa{background:#25D366; color:#fff;}
+.btn-wa:hover{background:#1fb959;}
+
+/* ===== TOP BAR — logo + phone only, no nav ===== */
+.topbar{background:var(--navy-deep); padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.08);}
+.topbar .wrap{display:flex; align-items:center; justify-content:space-between;}
+.logo{display:flex; align-items:center; gap:8px; color:#fff;}
+.logo-mark{width:28px; height:28px; border-radius:5px; background:var(--gold); display:flex; align-items:center; justify-content:center; font-family:'Barlow Condensed',sans-serif; font-weight:800; color:var(--navy-deep); font-size:17px;}
+.logo-text{font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:16px; letter-spacing:0.02em; text-transform:uppercase; color:#fff;}
+.logo-text span{color:var(--gold); font-weight:600;}
+.topbar-phone{font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:15px; color:rgba(255,255,255,0.85); text-decoration:none; display:flex; align-items:center; gap:6px;}
+.topbar-phone .wa-dot{width:8px; height:8px; border-radius:50%; background:#25D366;}
+
+/* ===== HERO ===== */
+.hero{
+  background:radial-gradient(ellipse 700px 400px at 85% 0%, rgba(255,199,44,0.14), transparent 60%),
+    linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
+  color:#fff; padding:32px 0 0;
+}
+.hero .wrap{text-align:center; padding-bottom:22px;}
+.hero-badges{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:16px;}
+.pill{display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18); padding:6px 12px; border-radius:4px; font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.03em; text-transform:uppercase; color:#fff;}
+.pill.gold{background:rgba(255,199,44,0.14); border-color:rgba(255,199,44,0.4); color:var(--gold);}
+.hero h1{font-size:clamp(32px,8vw,46px); color:#fff; margin-bottom:14px;}
+.hero h1 em{font-style:normal; color:var(--gold);}
+.hero-sub{font-family:'Lato',sans-serif; font-size:17px; color:rgba(255,255,255,0.85); max-width:46ch; margin:0 auto 20px;}
+.hero-price-badge{
+  display:inline-flex; align-items:center; gap:12px; background:rgba(0,0,0,0.28);
+  border:1px solid rgba(255,199,44,0.35); border-radius:var(--radius-sm);
+  padding:12px 20px; margin-bottom:20px;
+}
+.hero-price-badge .amt{font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(26px,6vw,34px); color:var(--gold);}
+.hero-price-badge .note{font-family:'Lato',sans-serif; font-size:12.5px; text-align:left; color:rgba(255,255,255,0.7); line-height:1.3;}
+.hero-cta-col{display:flex; flex-direction:column; gap:10px; max-width:380px; margin:0 auto;}
+.hero-visual{margin-top:8px;}
+.hero-visual img{width:100%; display:block;}
+
+/* Trust strip — dense, right under hero, like the reference ad */
+.trust-strip{background:var(--navy-deep); border-top:1px solid rgba(255,255,255,0.08); padding:18px 0;}
+.trust-strip .wrap-wide{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; text-align:center;}
+@media(max-width:640px){.trust-strip .wrap-wide{grid-template-columns:repeat(2,1fr); gap:16px;}}
+.trust-item{color:#fff;}
+.trust-item .ic{font-size:20px; margin-bottom:4px;}
+.trust-item .t{font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:13.5px; text-transform:uppercase; letter-spacing:0.02em;}
+.trust-item .s{font-family:'Lato',sans-serif; font-size:11px; color:rgba(255,255,255,0.55);}
+
+/* ===== OFFER STRIP TICKER ===== */
+.strip{background:var(--gold); color:var(--navy-deep); padding:10px 0; overflow:hidden;}
+.strip-track{display:flex; gap:32px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.03em; text-transform:uppercase; white-space:nowrap; animation:scroll-strip 22s linear infinite;}
+.strip-track span{display:flex; align-items:center; gap:8px;}
+.strip-track span::before{content:"●"; font-size:7px; opacity:0.6;}
+@keyframes scroll-strip{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+@media(prefers-reduced-motion: reduce){.strip-track{animation:none; flex-wrap:wrap;}}
+
+/* ===== SECTIONS — tight, single column ===== */
+.section{padding:38px 0;}
+.section-navy{background:var(--navy-deep); color:#fff;}
+.section-cream{background:var(--cream);}
+.eyebrow-gold{color:var(--gold-deep);}
+.section-navy .eyebrow-gold{color:var(--gold);}
+.section h2{font-size:clamp(24px,6vw,32px); color:var(--navy-deep); margin:8px 0 14px;}
+.section-navy h2{color:#fff;}
+.section p.lede{font-family:'Lato',sans-serif; font-size:15.5px; color:var(--ink-soft); margin-bottom:16px;}
+.section-navy p.lede{color:rgba(255,255,255,0.78);}
+
+/* Punchy bullet lists — replaces card grids */
+.punch-list{list-style:none; display:flex; flex-direction:column; gap:10px; margin:16px 0 20px;}
+.punch-list li{
+  display:flex; gap:10px; align-items:flex-start;
+  font-family:'Lato',sans-serif; font-size:15px; font-weight:400;
+  background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);
+  border-radius:var(--radius-sm); padding:12px 14px; color:rgba(255,255,255,0.88);
+}
+.section-cream .punch-list li,.section:not(.section-navy) .punch-list li{
+  background:#fff; border:1px solid var(--line); color:var(--ink);
+}
+.punch-list .mark{flex:none; width:20px; height:20px; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800;}
+.punch-list .mark.x{background:rgba(239,68,68,0.16); color:#f87171;}
+.punch-list .mark.check{background:rgba(255,199,44,0.16); color:var(--gold-deep);}
+
+.punch-line{font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(20px,5.4vw,26px); color:var(--gold); margin:6px 0 18px;}
+
+/* Repeating price/CTA reminder bar between sections */
+.cta-reminder{
+  background:linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+  border-radius:var(--radius); padding:18px 20px; margin:22px auto 0; max-width:var(--maxw);
+  display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+  box-shadow:var(--shadow);
+}
+.cta-reminder .price{font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:22px; color:var(--gold);}
+.cta-reminder .price small{display:block; font-family:'Lato',sans-serif; font-weight:400; font-size:11px; color:rgba(255,255,255,0.6); text-transform:none; letter-spacing:0;}
+.cta-reminder .btn{padding:12px 20px; font-size:15px;}
+
+/* Product image full width, tight caption below */
+.product-shot{margin:18px 0;}
+.product-shot img{border-radius:var(--radius); box-shadow:var(--shadow);}
+.product-caption{font-family:'Lato',sans-serif; font-size:12.5px; color:var(--ink-soft); text-align:center; margin-top:8px;}
+.section-navy .product-caption{color:rgba(255,255,255,0.6);}
+
+/* Compact list rows — appliances / benefits (no card grids) */
+.compact-rows{display:flex; flex-direction:column; gap:10px; margin:16px 0 8px;}
+.compact-row{
+  display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line);
+  border-radius:var(--radius-sm); padding:10px; overflow:hidden;
+}
+.compact-row .thumb{flex:none; width:56px; height:56px; border-radius:5px; overflow:hidden;}
+.compact-row .thumb img{width:100%; height:100%; object-fit:cover;}
+.compact-row .txt{flex:1;}
+.compact-row .txt .t{font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:17px; letter-spacing:0.01em;}
+.compact-row .txt .s{font-family:'Lato',sans-serif; font-size:13px; color:var(--ink-soft); margin-top:1px;}
+.runtime-note{margin-top:14px; text-align:center; font-family:'Lato',sans-serif; font-size:13px; color:var(--ink-soft);}
+
+/* Disclaimer */
+.disclaimer{margin-top:14px; font-family:'Lato',sans-serif; font-size:13px; color:var(--ink-soft); border-left:3px solid var(--gold); padding-left:10px;}
+.section-navy .disclaimer{color:rgba(255,255,255,0.65);}
+
+/* ===== PRICE BLOCK ===== */
+.price-block{background:linear-gradient(150deg, var(--navy) 0%, var(--navy-deep) 100%); border-radius:var(--radius); padding:26px 22px; color:#fff; text-align:center; box-shadow:var(--shadow);}
+.price-block .eyebrow{color:var(--gold);}
+.price-block h2{color:#fff; margin:8px 0 6px;}
+.price-block p{font-family:'Lato',sans-serif; font-size:14.5px; color:rgba(255,255,255,0.78); margin-bottom:16px;}
+.price-display{background:rgba(0,0,0,0.28); border:1px solid rgba(255,199,44,0.3); border-radius:var(--radius-sm); padding:18px; margin-bottom:16px;}
+.price-display .label{font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:12.5px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:4px;}
+.price-display .amount{font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(34px,9vw,46px); color:var(--gold);}
+.price-badges{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:16px;}
+
+/* ===== LEAD FORM ===== */
+.form-section{background:var(--navy-deep); color:#fff;}
+.scarcity{
+  background:rgba(255,199,44,0.12); border:1px solid rgba(255,199,44,0.35); border-radius:var(--radius-sm);
+  padding:10px 14px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:14px;
+  color:var(--gold); text-align:center; margin-bottom:18px; letter-spacing:0.01em;
+}
+.form-card{background:#fff; color:var(--ink); border-radius:var(--radius); padding:26px 20px; box-shadow:var(--shadow);}
+.form-card h2{color:var(--navy-deep); font-size:clamp(22px,5.6vw,28px); margin-bottom:6px;}
+.form-card > p{font-family:'Lato',sans-serif; font-size:14.5px; color:var(--ink-soft); margin-bottom:18px;}
+.f-row{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px;}
+@media(max-width:480px){.f-row{grid-template-columns:1fr;}}
+.f-group{margin-bottom:14px;}
+.f-group label{display:block; font-family:'Barlow Condensed',sans-serif; font-size:14px; font-weight:700; margin-bottom:6px; color:var(--navy-deep);}
+.f-group input,.f-group select{width:100%; padding:12px 13px; border-radius:var(--radius-sm); border:1.5px solid #e2e5ea; font-size:15px; font-family:'Lato',sans-serif; background:#fbfbfc; color:var(--ink);}
+.f-group input:focus,.f-group select:focus{outline:none; border-color:var(--gold-deep); box-shadow:0 0 0 3px rgba(255,199,44,0.25);}
+.chip-group{display:flex; flex-wrap:wrap; gap:7px;}
+.chip{border:1.5px solid #e2e5ea; border-radius:4px; padding:8px 13px; font-family:'Lato',sans-serif; font-size:13px; font-weight:700; cursor:pointer; user-select:none; background:#fbfbfc; color:var(--ink); transition:all .12s ease;}
+.chip input{display:none;}
+.chip.active,.chip:has(input:checked){background:var(--navy-deep); color:#fff; border-color:var(--navy-deep);}
+.consent-row{display:flex; align-items:flex-start; gap:8px; margin:14px 0; font-family:'Lato',sans-serif; font-size:12.5px; color:var(--ink-soft);}
+.consent-row input{margin-top:3px;}
+.form-footnote{font-family:'Lato',sans-serif; font-size:11.5px; color:var(--ink-soft); text-align:center; margin-top:10px;}
+
+#thankyou{display:none;}
+#thankyou.show{display:block;}
+.ty-card{background:#fff; border-radius:var(--radius); padding:30px 22px; text-align:center; box-shadow:var(--shadow);}
+.ty-emoji{font-size:40px; margin-bottom:10px;}
+.ty-card h2{font-size:clamp(24px,6vw,30px); margin-bottom:8px; color:var(--navy-deep);}
+.ty-card p{font-family:'Lato',sans-serif; color:var(--ink-soft); font-size:14.5px; margin-bottom:6px;}
+.ty-divider{height:1px; background:var(--line); margin:18px 0;}
+.ty-list{list-style:none; text-align:left; margin:0 auto 20px; display:flex; flex-direction:column; gap:8px;}
+.ty-list li{font-family:'Lato',sans-serif; font-size:14px; color:var(--ink-soft); display:flex; gap:8px;}
+.ty-list li::before{content:"✓"; color:var(--gold-deep); font-weight:800;}
+
+/* ===== FAQ ===== */
+.faq-list{display:flex; flex-direction:column; gap:8px;}
+.faq-item{border:1px solid var(--line); border-radius:var(--radius-sm); background:#fff; overflow:hidden;}
+.faq-q{width:100%; text-align:left; background:none; border:none; cursor:pointer; padding:15px 16px; font-family:'Barlow Condensed',sans-serif; font-size:17.5px; font-weight:700; color:var(--navy-deep); display:flex; justify-content:space-between; align-items:center; gap:14px;}
+.faq-q .plus{flex:none; width:22px; height:22px; border-radius:50%; background:var(--cream); display:flex; align-items:center; justify-content:center; font-size:14px; transition:transform .2s ease; color:var(--navy-deep); font-weight:800;}
+.faq-item.open .faq-q .plus{transform:rotate(45deg); background:var(--gold);}
+.faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
+.faq-a p{padding:0 16px 16px; font-family:'Lato',sans-serif; font-size:14px; color:var(--ink-soft);}
+.faq-item.open .faq-a{max-height:200px;}
+
+/* ===== FINAL CTA ===== */
+.final-cta{background:linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%); color:#fff; text-align:center;}
+.final-cta h2{color:#fff; font-size:clamp(28px,7vw,38px); margin-bottom:10px;}
+.final-cta p{font-family:'Lato',sans-serif; color:rgba(255,255,255,0.78); font-size:15.5px; margin-bottom:20px;}
+.final-cta .wa-line{margin-top:14px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:15px; color:rgba(255,255,255,0.7);}
+
+footer{background:var(--navy-deep); color:rgba(255,255,255,0.55); padding:24px 0; text-align:center;}
+footer .f-logo{color:#fff; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:15px; letter-spacing:0.02em; text-transform:uppercase; margin-bottom:6px;}
+footer .f-line{font-family:'Lato',sans-serif; font-size:12.5px; margin-top:4px;}
+
+/* Floating WhatsApp button — persistent on all devices */
+.wa-float{
+  position:fixed; right:16px; bottom:78px; z-index:60;
+  width:52px; height:52px; border-radius:50%; background:#25D366; color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:24px;
+  box-shadow:0 10px 24px -6px rgba(0,0,0,0.4); text-decoration:none;
+}
+@media(min-width:860px){.wa-float{bottom:24px;}}
+
+/* Sticky bottom bar — mobile */
+.sticky-bar{position:fixed; bottom:0; left:0; right:0; z-index:50; background:var(--navy-deep); border-top:1px solid rgba(255,255,255,0.1); padding:10px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px;}
+.sticky-bar .sb-price{color:#fff; font-family:'Barlow Condensed',sans-serif; font-size:16px; font-weight:700;}
+.sticky-bar .sb-price small{display:block; font-family:'Lato',sans-serif; color:rgba(255,255,255,0.55); font-size:10px; font-weight:400;}
+.sb-btn{border-radius:var(--radius-sm); padding:10px 16px; font-family:'Barlow Condensed',sans-serif; font-size:14px; font-weight:700; text-transform:uppercase; text-decoration:none; background:var(--gold); color:var(--navy-deep);}
+@media(min-width:860px){.sticky-bar{display:none;}}
+
+.reveal-hide{display:none !important;}
+
+</style>
+</head>
+<body>
+
+<!-- ===== TOP BAR — no nav, just identity + phone ===== -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="logo"><div class="logo-mark">D</div><div class="logo-text">DYNAMIC<span> POWER</span></div></div>
+    <a href="https://wa.me/2348032745082" target="_blank" rel="noopener" class="topbar-phone"><span class="wa-dot"></span> 0803 274 5082</a>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-badges">
+      <span class="pill">No Fuel</span><span class="pill">No Noise</span><span class="pill gold">Pumps Water Too</span>
+    </div>
+    <h1>Reliable 1200W Power — <em>No Fuel, No Generator Noise.</em></h1>
+    <p class="hero-sub">Power your lights, TV, fridge essentials and devices — and pump water too. Installed at your home or shop, anywhere in Nigeria.</p>
+
+    <div class="hero-price-badge">
+      <div class="amt">₦900,000</div>
+      <div class="note">Installation included<br>nationwide. Pay monthly.</div>
+    </div>
+
+    <div class="hero-cta-col">
+      <a href="#lead-form" class="btn btn-gold btn-block">Check Availability</a>
+      <a href="https://wa.me/2348032745082" target="_blank" rel="noopener" class="btn btn-wa btn-block">Chat on WhatsApp Now</a>
+    </div>
+  </div>
+  <div class="wrap-wide hero-visual">
+    <img src="dynamic-power-hero.png" alt="Dynamic Power 1200W Portable Power Station with solar panels, installed outside a Nigerian home and connected to a water pump">
+  </div>
+</section>
+
+<!-- ===== TRUST STRIP — dense, right under hero ===== -->
+<div class="trust-strip">
+  <div class="wrap-wide">
+    <div class="trust-item"><div class="ic">🛠️</div><div class="t">Pro Installation</div><div class="s">Done by experts</div></div>
+    <div class="trust-item"><div class="ic">🚚</div><div class="t">Nationwide Delivery</div><div class="s">Fast &amp; reliable</div></div>
+    <div class="trust-item"><div class="ic">🛡️</div><div class="t">1 Year Warranty</div><div class="s">Peace of mind</div></div>
+    <div class="trust-item"><div class="ic">🎧</div><div class="t">After-Sales Support</div><div class="s">We've got you</div></div>
+  </div>
+</div>
+
+<!-- ===== OFFER TICKER ===== -->
+<div class="strip">
+  <div class="strip-track">
+    <span>1200W Power</span><span>Installation Nationwide</span><span>Water Pump Capable</span><span>No Fuel</span><span>No Noise</span><span class="readout">₦900,000</span>
+    <span>1200W Power</span><span>Installation Nationwide</span><span>Water Pump Capable</span><span>No Fuel</span><span>No Noise</span><span class="readout">₦900,000</span>
+  </div>
+</div>
+
+<!-- ===== PROBLEM ===== -->
+<section class="section section-navy">
+  <div class="wrap">
+    <div class="eyebrow">Sound familiar?</div>
+    <h2>Still Spending on Fuel and Generator Repairs?</h2>
+    <ul class="punch-list">
+      <li><span class="mark x">✕</span> Fuel costs that never stop rising</li>
+      <li><span class="mark x">✕</span> Generator noise every single evening</li>
+      <li><span class="mark x">✕</span> Smoke, fumes and constant breakdowns</li>
+      <li><span class="mark x">✕</span> No power to pump water when NEPA is out</li>
+    </ul>
+    <p class="punch-line">There's a better way — and it pays for itself.</p>
+    <a href="#lead-form" class="btn btn-gold btn-block">See If It Fits My Home</a>
+  </div>
+</section>
+
+<!-- ===== SOLUTION ===== -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow eyebrow-gold">The fix</div>
+    <h2>Meet the Dynamic Power 1200W</h2>
+    <p class="lede">A cleaner, quieter alternative for powering your essentials — at home or at work.</p>
+    <div class="product-shot"><img src="dynamic-power-hero.png" alt="Dynamic Power 1200W unit showing solar input, AC output, DC output and water pump ports"></div>
+    <ul class="punch-list">
+      <li><span class="mark check">✓</span> 1200W output — runs multiple appliances at once</li>
+      <li><span class="mark check">✓</span> Solar charging with the included panels</li>
+      <li><span class="mark check">✓</span> Quiet operation, day or night</li>
+      <li><span class="mark check">✓</span> Zero petrol or diesel required</li>
+      <li><span class="mark check">✓</span> Also pumps water — one system, two jobs</li>
+      <li><span class="mark check">✓</span> Portable and built for Nigerian homes and shops</li>
+    </ul>
+    <p class="disclaimer">Runtime depends on the appliances connected and your usage. Our team confirms what fits your needs before you commit.</p>
+    <div class="cta-reminder">
+      <div class="price">₦900,000<small>Installation included nationwide</small></div>
+      <a href="#lead-form" class="btn btn-gold">Check Availability</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WATER PUMP FEATURE ===== -->
+<section class="section section-navy">
+  <div class="wrap">
+    <div class="eyebrow">Not just power</div>
+    <h2>Yes — It Pumps Water Too.</h2>
+    <p class="lede">Power more than your lights and devices. Dynamic Power also supports water pumping — more flexibility when electricity is unavailable.</p>
+    <div class="product-shot"><img src="dynamic-power-hero.png" alt="Dynamic Power unit connected to a water pump, drawing water outdoors"></div>
+    <a href="#lead-form" class="btn btn-gold btn-block">I Need This for My Home / Business</a>
+  </div>
+</section>
+
+<!-- ===== WHAT CAN YOU POWER (compact rows) ===== -->
+<section class="section section-cream">
+  <div class="wrap">
+    <div class="eyebrow eyebrow-gold">Everyday use</div>
+    <h2>What Can You Power?</h2>
+    <div class="compact-rows">
+      <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/1444416/pexels-photo-1444416.jpeg?auto=compress&cs=tinysrgb&w=200" alt="TV"></div><div class="txt"><div class="t">TV</div></div></div>
+      <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/3675622/pexels-photo-3675622.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Fan"></div><div class="txt"><div class="t">Fan</div></div></div>
+      <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/712490/pexels-photo-712490.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Lights"></div><div class="txt"><div class="t">Lights</div></div></div>
+      <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/4218546/pexels-photo-4218546.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Wi-Fi router"></div><div class="txt"><div class="t">Wi-Fi Router</div></div></div>
+      <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/6355/pexels-photo-6355.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Laptop"></div><div class="txt"><div class="t">Laptop</div></div></div>
+      <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/16814787/pexels-photo-16814787.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Phone charging"></div><div class="txt"><div class="t">Phone Charging</div></div></div>
+      <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/17335757/pexels-photo-17335757.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Water pump"></div><div class="txt"><div class="t">Water Pump</div></div></div>
+      <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/12935074/pexels-photo-12935074.jpeg?auto=compress&cs=tinysrgb&w=200" alt="POS and office devices"></div><div class="txt"><div class="t">POS &amp; Office Devices</div></div></div>
+    </div>
+    <p class="runtime-note">Runtime depends on the appliance, usage and connected load.</p>
+  </div>
+</section>
+
+<!-- ===== WHY DYNAMIC POWER (compact rows) ===== -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow eyebrow-gold">Why Dynamic Power</div>
+    <h2>Six Reasons Nigerians Choose Us</h2>
+    <div class="compact-rows">
+      <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Reliable power"></div><div class="txt"><div class="t">Reliable Power</div><div class="s">Keeps essentials running when the grid fails</div></div></div>
+      <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/11116153/pexels-photo-11116153.jpeg?auto=compress&cs=tinysrgb&w=200" alt="No fuel"></div><div class="txt"><div class="t">No Fuel</div><div class="s">Stop depending on petrol or diesel</div></div></div>
+      <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/712490/pexels-photo-712490.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Quiet operation"></div><div class="txt"><div class="t">Quiet Operation</div><div class="s">Backup power with no generator roar</div></div></div>
+      <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/8745692/pexels-photo-8745692.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Water pump support"></div><div class="txt"><div class="t">Water Pump Support</div><div class="s">One system for power and water needs</div></div></div>
+      <div class="compact-row"><div class="thumb"><img src="dynamic-power-hero.png" alt="Portable unit"></div><div class="txt"><div class="t">Portable</div><div class="s">Move your power solution where you need it</div></div></div>
+      <div class="compact-row"><div class="thumb"><img src="https://images.pexels.com/photos/6961112/pexels-photo-6961112.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Nationwide installation"></div><div class="txt"><div class="t">Nationwide Installation</div><div class="s">Professional install wherever you are</div></div></div>
+    </div>
+    <div class="cta-reminder">
+      <div class="price">₦900,000<small>Pay for installation monthly</small></div>
+      <a href="#lead-form" class="btn btn-gold">Check Availability</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICE ===== -->
+<section class="section section-cream">
+  <div class="wrap">
+    <div class="price-block">
+      <div class="eyebrow">The offer</div>
+      <h2>Get Your Dynamic Power 1200W</h2>
+      <p>Professional installation without paying it all at once.</p>
+      <div class="price-display"><div class="label">Total package price</div><div class="amount">₦900,000</div></div>
+      <div class="price-badges">
+        <span class="pill gold">Installation Included Nationwide</span>
+        <span class="pill">Pay Installation Monthly</span>
+      </div>
+      <a href="#lead-form" class="btn btn-gold btn-block">Check Availability</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LEAD FORM ===== -->
+<section class="section form-section" id="lead-form">
+  <div class="wrap">
+
+    <div id="form-view">
+      <div class="scarcity">⚠ Installation slots are limited each month — submit your details to confirm availability in your area.</div>
+      <div class="form-card">
+        <h2>Interested in Dynamic Power 1200W?</h2>
+        <p>Tell us where you are and what you need to power. Our team follows up on WhatsApp.</p>
+        <form id="leadForm">
+          <div class="f-group"><label for="fullName">Full Name</label><input type="text" id="fullName" placeholder="Enter your full name" required></div>
+          <div class="f-row">
+            <div class="f-group" style="margin-bottom:0;"><label for="phone">Phone / WhatsApp</label><input type="tel" id="phone" placeholder="e.g. 08012345678" required></div>
+            <div class="f-group" style="margin-bottom:0;"><label for="state">State</label><select id="state" required><option value="">Select state</option></select></div>
+          </div>
+          <div class="f-group"><label for="city">City / Location</label><input type="text" id="city" placeholder="Enter your city or town" required></div>
+          <div class="f-group">
+            <label>What do you want to use it for?</label>
+            <div class="chip-group" id="useFor">
+              <label class="chip"><input type="checkbox" value="Home"> Home</label>
+              <label class="chip"><input type="checkbox" value="Shop"> Shop</label>
+              <label class="chip"><input type="checkbox" value="Office"> Office</label>
+              <label class="chip"><input type="checkbox" value="POS Business"> POS Business</label>
+              <label class="chip"><input type="checkbox" value="Farm"> Farm</label>
+              <label class="chip"><input type="checkbox" value="Water Pumping"> Water Pumping</label>
+              <label class="chip"><input type="checkbox" value="Other"> Other</label>
+            </div>
+          </div>
+          <div class="f-group">
+            <label for="wantToKnow">What would you like to know? <span style="font-weight:400; color:var(--ink-soft);">(optional)</span></label>
+            <select id="wantToKnow">
+              <option value="">Select an option</option>
+              <option>Price</option><option>Installation</option><option>Payment options</option>
+              <option>Water pumping</option><option>What it can power</option><option>General information</option>
+            </select>
+          </div>
+          <label class="consent-row"><input type="checkbox" id="consent"><span>Yes, I want Dynamic Power updates and information on WhatsApp.</span></label>
+          <button type="submit" class="btn btn-gold btn-block">Get More Information</button>
+          <p class="form-footnote">Your information is used only to contact you about Dynamic Power.</p>
+        </form>
+      </div>
+    </div>
+
+    <div id="thankyou">
+      <div class="ty-card">
+        <div class="ty-emoji">🎉</div>
+        <h2>You're In!</h2>
+        <p>Thank you for showing interest in Dynamic Power 1200W.</p>
+        <p>Installation is available nationwide, and you can pay for installation monthly.</p>
+        <div class="ty-divider"></div>
+        <h3 style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:21px; margin-bottom:12px; color:var(--navy-deep);">Join Our WhatsApp Group</h3>
+        <ul class="ty-list">
+          <li>Product updates and special offers</li>
+          <li>Installation information</li>
+          <li>Answers to common questions</li>
+          <li>Availability updates in your area</li>
+        </ul>
+        <a href="https://wa.me/2348032745082?text=Hi%2C%20I%27d%20like%20to%20join%20the%20Dynamic%20Power%20WhatsApp%20group" target="_blank" rel="noopener" class="btn btn-gold btn-block" style="margin-bottom:12px;">Join the WhatsApp Group</a>
+        <p style="font-family:'Lato',sans-serif; font-size:13px; color:var(--ink-soft);">Prefer to talk directly? WhatsApp: <strong>0803 274 5082</strong></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section section-cream">
+  <div class="wrap">
+    <div class="eyebrow eyebrow-gold">Questions</div>
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q"><span>Is installation included?</span><span class="plus">+</span></button><div class="faq-a"><p>Yes. Installation is included nationwide.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>Can I pay installation monthly?</span><span class="plus">+</span></button><div class="faq-a"><p>Yes. Customers can pay for installation monthly.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>Can it pump water?</span><span class="plus">+</span></button><div class="faq-a"><p>Yes. The system can also be used for water-pumping applications.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>How much does it cost?</span><span class="plus">+</span></button><div class="faq-a"><p>The current package price is ₦900,000.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>Do I need petrol or diesel?</span><span class="plus">+</span></button><div class="faq-a"><p>No. It's a clean alternative to fuel-powered generators.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>Is it noisy?</span><span class="plus">+</span></button><div class="faq-a"><p>It runs quietly compared with traditional fuel generators.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>Where can I get installation?</span><span class="plus">+</span></button><div class="faq-a"><p>Installation is available nationwide in Nigeria.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>How do I order?</span><span class="plus">+</span></button><div class="faq-a"><p>Submit the form above or contact us on WhatsApp at 0803 274 5082.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="section final-cta">
+  <div class="wrap">
+    <h2>Ready for Reliable Power Without Fuel?</h2>
+    <p>Tell us where you are and what you need to power. We'll help you take the next step.</p>
+    <div class="hero-cta-col">
+      <a href="#lead-form" class="btn btn-gold btn-block">Check Availability</a>
+      <a href="https://wa.me/2348032745082" target="_blank" rel="noopener" class="btn btn-wa btn-block">WhatsApp Us</a>
+    </div>
+    <div class="wa-line">0803 274 5082</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-logo">DYNAMIC POWER</div>
+    <div class="f-line">No Fuel · No Noise · Installed Nationwide</div>
+    <div class="f-line">WhatsApp: 0803 274 5082</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/2348032745082" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">💬</a>
+
+<div class="sticky-bar">
+  <div class="sb-price">₦900,000 <small>Installation included</small></div>
+  <a href="#lead-form" class="sb-btn">Check Availability</a>
+</div>
+
+<script>
+const states = ["Abia","Adamawa","Akwa Ibom","Anambra","Bauchi","Bayelsa","Benue","Borno","Cross River","Delta","Ebonyi","Edo","Ekiti","Enugu","FCT (Abuja)","Gombe","Imo","Jigawa","Kaduna","Kano","Katsina","Kebbi","Kogi","Kwara","Lagos","Nasarawa","Niger","Ogun","Ondo","Osun","Oyo","Plateau","Rivers","Sokoto","Taraba","Yobe","Zamfara"];
+const stateSelect = document.getElementById('state');
+states.forEach(s => { const opt = document.createElement('option'); opt.value = s; opt.textContent = s; stateSelect.appendChild(opt); });
+
+document.querySelectorAll('#useFor .chip input').forEach(input => {
+  input.addEventListener('change', () => input.closest('.chip').classList.toggle('active', input.checked));
+});
+
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+document.getElementById('leadForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('form-view').classList.add('reveal-hide');
+  const ty = document.getElementById('thankyou');
+  ty.classList.add('show');
+  ty.scrollIntoView({behavior:'smooth', block:'start'});
+});
+</script>
+
+</body>
+</html>
